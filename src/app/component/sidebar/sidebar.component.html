@@ -1,0 +1,32 @@
+<div class="app" style="display: flex; height: 100vh; overflow:scroll initial">
+    <CDBSidebar textColor="#ffffff " backgroundColor="#333333">
+        <CDBSidebarHeader [prefix]="icon">
+            <ng-template #icon>
+                <i class="fas fa-solid fa-mug-hot fa-lg"></i>
+            </ng-template>
+            CafeteriaUtags
+        </CDBSidebarHeader>
+        <CDBSidebarContent>
+            <CDBSidebarMenu class="sidebar-content">
+                <ng-container *ngFor="let menu of this.modulos">
+                    <CDBSidebarMenuItem [link]="menu.strRuta" [icon]="menu.strIcono" [title]="menu.strDescripcion">
+                        {{menu.strNombre}}
+                    </CDBSidebarMenuItem>
+                </ng-container>
+                <CDBSidebarMenuItem [link]="'/login'" icon="arrow-left">
+                    Salir
+                </CDBSidebarMenuItem>
+            </CDBSidebarMenu>
+        </CDBSidebarContent>
+        <div class="mt-auto">
+
+            <CDBSidebarFooter style="text-align: center; margin-top: auto;">
+                <div class="sidebar-btn-wrapper" style="padding: 20px 5px">
+                    <hr>
+                    <img src="../../../assets/images/uta.png" width="180px">
+                </div>
+            </CDBSidebarFooter>
+        </div>
+    </CDBSidebar>
+    <router-outlet></router-outlet>
+</div>

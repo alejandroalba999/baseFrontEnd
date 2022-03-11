@@ -1,0 +1,39 @@
+<div class="text-center mt-3">
+    <img src="../../../assets/images/cafeteria.png" width="200px" class="rounded" alt="...">
+</div>
+<div class="card text-center shadow m-3">
+    <div class="card-body animated fadeIn">
+        <div class="btn-group  btn-group-sm" role="group" aria-label="...">
+            <button type="button" class="btn btn-outline-secondary {{!this.registroComponent ? 'active' : ''}}"
+                (click)="this.registroComponent = false">Inicio</button>
+            <button type="button" class="btn btn-outline-secondary"
+                (click)="this.registroComponent = true">Registro</button>
+        </div>
+        <hr>
+        <ng-container *ngIf="!this.registroComponent">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" [(ngModel)]="loginModel.strEmail"
+                    name="strEmail">
+                <label for="floatingInput">Correo Electronico</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="loginModel.strPassword"
+                    name="strPassword">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+            <button type="button" class="btn btn-outline-secondary mt-3 mb-3" (click)="Logear()"
+                [disabled]="cargando">Iniciar Sesión</button>
+        </ng-container>
+        <ng-container *ngIf="this.registroComponent">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
