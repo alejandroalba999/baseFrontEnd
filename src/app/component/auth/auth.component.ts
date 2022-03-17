@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/models/login.model';
-import { ServiciosService } from 'src/app/servicios.service';
+import { ServiciosService } from 'src/app/services/servicios.service';
 import Swal from 'sweetalert2';
 
 const toastMixin = Swal.mixin({
@@ -42,10 +42,12 @@ export class AuthComponent implements OnInit {
       localStorage.setItem('tokenUsuario', res.token);
       this.navigation.navigate(['/dashboard'])
     }).catch(err => {
+      console.log(err.name);
+
       this.cargando = false;
       toastMixin.fire({
         icon: 'error',
-        title: `${err.error ? err.error.err.message : err.error}`,
+        title: `${err.name == 'HttpErrorResponse' ? 'Error del servidor' : err.error ? err.error.err.message : err.error}`,
       });
     })
 

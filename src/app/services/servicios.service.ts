@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
-const endPoint = 'http://localhost:3000/api'
+const endPoint = environment.url
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosService {
 
   constructor(private http: HttpClient) { }
-  getCafeteria() {
-    return this.http.get(`${endPoint}/cafeteria`,).toPromise();
-  }
+
   login(body) {
     return this.http.post(`${endPoint}/login`, body).toPromise();
   }

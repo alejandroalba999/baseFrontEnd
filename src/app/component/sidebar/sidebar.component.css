@@ -1,0 +1,27 @@
+.img-rounded{
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+.navbarsfloat {
+  overflow: hidden;
+  background-color: #666666;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.sidebarfloat{
+   overflow: hidden;
+  position: fixed;
+  z-index: 2;
+}
+
+.footerBreadCrumb{
+  overflow: hidden;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  width: 100%;
+  z-index: 1;
+}
