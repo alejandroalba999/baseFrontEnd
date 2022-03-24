@@ -6,10 +6,13 @@
         <div class="btn-group  btn-group-sm" role="group" aria-label="...">
             <button type="button" class="btn btn-outline-secondary {{!this.registroComponent ? 'active' : ''}}"
                 (click)="this.registroComponent = false">Inicio</button>
-            <button type="button" class="btn btn-outline-secondary"
+            <button type="button" class="btn btn-outline-secondary {{this.registroComponent ? 'active' : ''}}"
                 (click)="this.registroComponent = true">Registro</button>
         </div>
         <hr>
+
+
+        <!-- login -->
         <ng-container *ngIf="!this.registroComponent">
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" [(ngModel)]="loginModel.strEmail"
@@ -24,6 +27,10 @@
             <button type="button" class="btn btn-outline-secondary mt-3 mb-3" (click)="Logear()"
                 [disabled]="cargando">Iniciar Sesión</button>
         </ng-container>
+        <!-- login -->
+
+
+        <!-- Registro -->
         <ng-container *ngIf="this.registroComponent">
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -34,6 +41,8 @@
                 <label for="floatingPassword">Password</label>
             </div>
         </ng-container>
+        <!-- Registro -->
+
 
     </div>
 </div>
